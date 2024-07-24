@@ -1,0 +1,17 @@
+@app.route("/")
+def hello_world():
+     a=Test.query.all()
+     print(a)
+     return render_template('index.html')   
+     try:
+        db.session.query(Test).first()  # Example query to check database connection
+        return 'My database is connected'
+     except Exception as e:
+        return f'My db is not connected: {str(e)}'
+     
+     triggers:if something happens it should triggerr in other table
+      for backups 
+      
+      config.json: give your mail and password to send mail to login mail
+     
+
