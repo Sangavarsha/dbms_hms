@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <title>{%block title%} {%endblock title%}</title>
+
+    <!--this base html is for every page have common  nav bar   but only document name changes everytime !-->
+
+    <!--this base.html is coded in language django-->
+
+    <style>
+        {%block css%} {%endblock css%}
+      #bar {
+        background-color: rgb(114, 114, 223);
+        font-style: normal;
+        font-family: Georgia, "Times New Roman", Times, serif;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg" id="bar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">H.M.S</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/doctors">Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/patients">Patients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/bookings">Booking Details</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/details">Patient Details</a>
+            </li>
+
+            {% if current_user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Welcome {{current_user.username}}
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li>
+
+            {%else%}
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Authentication
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/signup">SignUp</a></li>
+                <li><a class="dropdown-item" href="/login">Login</a></li>
+              </ul>
+            </li>
+
+            {% endif %}
+          </ul>
+          <form class="d-flex" role="search" action="/search " method="post">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder=" Department or Doctor Name"
+              aria-label="Search"
+              name="search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- even after that you want chage anything in common change in this code -->
+    {%block body%} {%endblock body%}
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

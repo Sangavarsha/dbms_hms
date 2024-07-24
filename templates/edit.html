@@ -1,0 +1,124 @@
+{% extends "base.html" %} {%block title%} Edit Patient Booking {%endblock
+title%}{% block css%} .form-group{ margin:0.5rem;} {%endblock css%} {%block
+body%}
+<br />
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="row justify-content-center">
+      <h4 class="text-center bg-bg-dangertext-white">Upadate Your Slot</h4>
+      <br />
+
+      <div class="card-header text-center">
+        <form action="/edit/{{ user.pid }}" method="post" class="card">
+          <div class="form-group">
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              value="{{user.email}}"
+              name="email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              value="{{user.name}}"
+              placeholder="Full Name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" id="gender" name="gender" required>
+              <option selected>{{user.gender}}</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select class="form-control" id="slot" name="slot" required>
+              <option selected>{{user.slot}}</option>
+              <option value="morning">Morning</option>
+              <option value="evening">Evening</option>
+              <option value="night">Night</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="time"
+              class="form-control"
+              name="time"
+              value="{{user.time}}"
+              placeholder="Time"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="date"
+              class="form-control"
+              name="date"
+              value="{{user.date}}"
+              placeholder="date"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              id="disease"
+              name="disease"
+              value="{{user.disease}}"
+              placeholder="Disease"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              value="{{user.dept}}"
+              id="dept"
+              name="dept"
+              placeholder="Doctor Dept"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              type="number"
+              class="form-control"
+              id="number"
+              name="number"
+              value="{{user.number}}"
+              placeholder="Phone Number"
+              required
+            />
+          </div>
+
+          <br />
+          <button
+            type="submit"
+            class="d-grid gap-2 col-6 mx-auto btn btn-warning btn-group-lg"
+          >
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4"></div>
+  {%endblock body%}
+</div>

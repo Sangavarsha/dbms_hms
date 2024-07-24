@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %} Triggers {% endblock title %} {%
+block body %}
+<div class="container mt-4">
+  <table class="table">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">TID</th>
+        <th scope="col">PID</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">NAME</th>
+        <th scope="col">ACTION</th>
+        <th scope="col">DATE</th>
+        <th scope="col">TIMESTAMP</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for post in posts %}
+      <tr>
+        <th scope="row">{{ post.tid }}</th>
+        <td>{{ post.pid}}</td>
+        <td>{{ post.email}}</td>
+        <td>{{ post.name}}</td>
+        <td>{{ post.action }}</td>
+        <td>{{ post.timestamp }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

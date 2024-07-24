@@ -1,0 +1,108 @@
+{% extends "base.html" %} {%block title%} SignUp {%endblock title%} 
+
+{%block css%} 
+
+
+.container{
+    font-family:Roman;
+}
+.card {
+    background-color: #f8f9fa; /* Light ash color */
+    padding: 22px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Adding margin */
+}
+.form-container {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+
+{%endblock css%}
+
+
+{%block body%}
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- each row has 12 column will divide column-->
+    <div class="col-md-4">
+      <!--<p>this is col1</p>-->
+    </div>
+    <div class="col-md-4 ">
+        <div class="card forn-container">
+            
+        <h5 class="text-center ">Sign Up</h5>
+        <br>
+        {% with messages=get_flashed_messages(with_categories=true) %} {% if
+          messages %} {% for category, message in messages %}
+  
+          <div
+            class="alert alert-{{category}} alert-dismissible fade show"
+            role="alert"
+          >
+            {{message}}
+  
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  
+          {% endfor %} {% endif %} {% endwith %}
+      <form action="/signup" method="POST">
+        <div class="mb-3" >
+          <label for="username">UserName</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            name="email"
+            required
+            />
+          
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+         
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        
+        <button type="submit" class=" d-grid gap-2 col-6 mx-auto btn btn-primary btn-group-lg ">SignUp</button>
+      </form>
+    </br>
+      <p class="text-center">Already a User <a href="/login">Login</a></p>
+    </div>
+
+    </div>
+    <div class="col-md-4">
+      <!--<p>this is col2</p>-->
+    </div>
+  </div>
+</div>
+
+{%endblock body%}
