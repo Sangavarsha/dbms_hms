@@ -1,5 +1,7 @@
 Hospital Management System 
 This website efficiently handles bookings paitent details,doctors information .<br>
+Code Editers:VS CODE<br>
+XAAMP server for database<br>
 I have created webpages using  flask,Jinja technique  and bootstap.<br>
 SQL Alchemy ORM is used to connect python with  sql  databases, where tables are defined as classes in python.<br>
 All CRUD operations are implemented and tigger database also created  for to store every action  and time of action (ex: upadate, delete, insert in database).<br>
